@@ -69,6 +69,32 @@ class BrokerConfigService {
           required: ['Exchange', 'ExchangeType', 'Symbol', 'Qty', 'Price', 'OrderType', 'BuySell'],
           optional: ['DisQty', 'IsStopLossOrder', 'StopLossPrice', 'IsVTD', 'IOCOrder', 'IsIntraday']
         }
+      },
+      mt4: {
+        name: 'MetaTrader 4',
+        authMethod: 'manual',
+        requiredFields: ['api_key', 'api_secret', 'server_url', 'login', 'password'],
+        optionalFields: ['imei'],
+        authUrl: null,
+        baseUrl: 'https://www.mtsocketapi.com',
+        webhookFormat: 'mt4',
+        orderFields: {
+          required: ['symbol', 'action', 'volume', 'order_type'],
+          optional: ['price', 'stoploss', 'takeprofit', 'comment', 'magic']
+        }
+      },
+      mt5: {
+        name: 'MetaTrader 5',
+        authMethod: 'manual',
+        requiredFields: ['api_key', 'api_secret', 'server_url', 'login', 'password'],
+        optionalFields: ['imei'],
+        authUrl: null,
+        baseUrl: 'https://www.mtsocketapi.com',
+        webhookFormat: 'mt5',
+        orderFields: {
+          required: ['symbol', 'action', 'volume', 'order_type'],
+          optional: ['price', 'stoploss', 'takeprofit', 'comment', 'magic', 'deviation']
+        }
       }
     };
   }
@@ -213,6 +239,29 @@ class BrokerConfigService {
         price: customData.price || 0,
         disclosed_quantity: customData.disclosed_quantity || 0,
         is_intraday: customData.is_intraday || true
+      },
+      mt4: {
+        symbol: customData.symbol || "EURUSD",
+        action: customData.action || "BUY",
+        volume: customData.volume || 0.01,
+        order_type: customData.order_type || "MARKET",
+        price: customData.price || 0,
+        stoploss: customData.stoploss || 0,
+        takeprofit: customData.takeprofit || 0,
+        comment: customData.comment || "TradingView",
+        magic: customData.magic || 12345
+      },
+      mt5: {
+        symbol: customData.symbol || "EURUSD",
+        action: customData.action || "BUY",
+        volume: customData.volume || 0.01,
+        order_type: customData.order_type || "MARKET",
+        price: customData.price || 0,
+        stoploss: customData.stoploss || 0,
+        takeprofit: customData.takeprofit || 0,
+        comment: customData.comment || "TradingView",
+        magic: customData.magic || 12345,
+        deviation: customData.deviation || 10
       }
     };
 

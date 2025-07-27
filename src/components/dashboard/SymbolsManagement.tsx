@@ -11,9 +11,11 @@ import {
   CheckCircle,
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Wifi,
+  WifiOff
 } from 'lucide-react';
-import { symbolsAPI } from '../../services/api';
+import { symbolsAPI, brokerAPI } from '../../services/api';
 import toast from 'react-hot-toast';
 import { useDebounce } from 'use-debounce';
 import ErrorBoundary from '../ErrorBoundary';
@@ -31,9 +33,11 @@ interface Symbol {
   strike_price?: number;
   option_type?: string;
   supported_brokers: string[];
+  broker_tokens: {[key: string]: string};
   is_active: boolean;
   created_at: string;
   updated_at: string;
+  isin?: string;
 }
 
 interface SyncStatus {
@@ -42,6 +46,14 @@ interface SyncStatus {
   last_sync_success: boolean;
   symbol_count: number;
   last_sync: string;
+}
+
+interface BrokerConnection {
+  id: number;
+  broker_name: string;
+  connection_name: string;
+  is_active: boolean;
+  is_authenticated: boolean;
 }
 
 const PAGE_SIZE = 20;
@@ -56,16 +68,12 @@ const SymbolsManagementContent: React.FC = () => {
   const [debouncedSearchQuery] = useDebounce(searchQuery, DEBOUNCE_DELAY);
   const [selectedExchange, setSelectedExchange] = useState('');
   const [selectedSegment, setSelectedSegment] = useState('');
+  const [selectedBroker, setSelectedBroker] = useState('');
   const [syncStatus, setSyncStatus] = useState<SyncStatus[]>([]);
+  const [brokerConnections, setBrokerConnections] = useState<BrokerConnection[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
-
-  // Debugging logs
-  useEffect(() => {
-    console.log('Symbols data:', symbols);
-    console.log('Sync status:', syncStatus);
-  }, [symbols, syncStatus]);
 
   // Constants
   const exchanges = ['NSE', 'BSE', 'MCX', 'NCDEX'];
@@ -88,35 +96,62 @@ const SymbolsManagementContent: React.FC = () => {
         
         const matchesExchange = !selectedExchange || symbol.exchange === selectedExchange;
         const matchesSegment = !selectedSegment || symbol.segment === selectedSegment;
+        const matchesBroker = !selectedBroker || symbol.supported_brokers.includes(selectedBroker);
         
-        return matchesSearch && matchesExchange && matchesSegment;
+        return matchesSearch && matchesExchange && matchesSegment && matchesBroker;
       } catch (error) {
         console.error('Error filtering symbol:', symbol, error);
         return false;
       }
     });
-  }, [symbols, debouncedSearchQuery, selectedExchange, selectedSegment]);
+  }, [symbols, debouncedSearchQuery, selectedExchange, selectedSegment, selectedBroker]);
 
   const totalPages = useMemo(() => {
     return Math.ceil(totalCount / PAGE_SIZE);
   }, [totalCount]);
 
+  // Fetch connected brokers
+  const fetchBrokerConnections = useCallback(async () => {
+    try {
+      const response = await brokerAPI.getConnections();
+      const activeConnections = response.data.connections.filter(
+        (conn: BrokerConnection) => conn.is_active && conn.is_authenticated
+      );
+      setBrokerConnections(activeConnections);
+    } catch (error: any) {
+      console.error('Failed to fetch broker connections:', error);
+      toast.error('Failed to fetch broker connections');
+      setBrokerConnections([]);
+    }
+  }, []);
+
   // API Calls with enhanced error handling
   const fetchSymbols = useCallback(async () => {
     try {
       setLoading(true);
+      
+      // Only fetch symbols for connected brokers
+      const connectedBrokerNames = brokerConnections.map(conn => conn.broker_name.toLowerCase());
+      
       const response = await symbolsAPI.getSymbols({
         search: debouncedSearchQuery,
         exchange: selectedExchange,
         segment: selectedSegment,
+        broker: selectedBroker,
         limit: PAGE_SIZE,
         offset: (currentPage - 1) * PAGE_SIZE
       });
       
-      // Ensure we always have an array
+      // Filter symbols to only show those supported by connected brokers
       const data = Array.isArray(response?.data) ? response.data : [];
-      setSymbols(data);
-      setTotalCount(response?.meta?.total_count || data.length);
+      const filteredData = data.filter(symbol => 
+        symbol.supported_brokers.some(broker => 
+          connectedBrokerNames.includes(broker.toLowerCase())
+        )
+      );
+      
+      setSymbols(filteredData);
+      setTotalCount(response?.meta?.total_count || filteredData.length);
     } catch (error: any) {
       console.error('Failed to fetch symbols:', error);
       toast.error(`Failed to fetch symbols: ${error.response?.data?.message || error.message}`);
@@ -126,23 +161,31 @@ const SymbolsManagementContent: React.FC = () => {
       setLoading(false);
       setInitialLoad(false);
     }
-  }, [debouncedSearchQuery, selectedExchange, selectedSegment, currentPage]);
+  }, [debouncedSearchQuery, selectedExchange, selectedSegment, selectedBroker, currentPage, brokerConnections]);
 
   const fetchSyncStatus = useCallback(async () => {
     try {
       const response = await symbolsAPI.getSyncStatus();
-      setSyncStatus(Array.isArray(response?.data) ? response.data : []);
+      const allStatuses = Array.isArray(response?.data) ? response.data : [];
+      
+      // Only show sync status for connected brokers
+      const connectedBrokerNames = brokerConnections.map(conn => conn.broker_name.toLowerCase());
+      const filteredStatuses = allStatuses.filter(status => 
+        connectedBrokerNames.includes(status.broker_name.toLowerCase())
+      );
+      
+      setSyncStatus(filteredStatuses);
     } catch (error: any) {
       console.error('Failed to fetch sync status:', error);
       toast.error(`Failed to fetch sync status: ${error.response?.data?.message || error.message}`);
       setSyncStatus([]);
     }
-  }, []);
+  }, [brokerConnections]);
 
   const handleSync = async (brokerName: string) => {
     try {
       setLoading(true);
-      await symbolsAPI.syncSymbols(brokerName);
+      await symbolsAPI.syncAllSymbols();
       toast.success(`Successfully synced symbols for ${brokerName}`);
       await Promise.all([fetchSymbols(), fetchSyncStatus()]);
     } catch (error: any) {
@@ -155,20 +198,22 @@ const SymbolsManagementContent: React.FC = () => {
 
   // Effects with cleanup
   useEffect(() => {
-    const loadData = async () => {
-      await Promise.all([fetchSymbols(), fetchSyncStatus()]);
-    };
-    loadData();
+    fetchBrokerConnections();
+  }, [fetchBrokerConnections]);
 
-    return () => {
-      // Cleanup if needed
-    };
-  }, [fetchSymbols, fetchSyncStatus]);
+  useEffect(() => {
+    if (brokerConnections.length > 0) {
+      const loadData = async () => {
+        await Promise.all([fetchSymbols(), fetchSyncStatus()]);
+      };
+      loadData();
+    }
+  }, [fetchSymbols, fetchSyncStatus, brokerConnections]);
 
   useEffect(() => {
     // Reset to first page when filters change
     setCurrentPage(1);
-  }, [debouncedSearchQuery, selectedExchange, selectedSegment]);
+  }, [debouncedSearchQuery, selectedExchange, selectedSegment, selectedBroker]);
 
   // Handlers
   const handlePageChange = (newPage: number) => {
@@ -181,13 +226,14 @@ const SymbolsManagementContent: React.FC = () => {
     setSearchQuery('');
     setSelectedExchange('');
     setSelectedSegment('');
+    setSelectedBroker('');
     setCurrentPage(1);
   };
 
   // Render helpers
   const renderLoadingSkeleton = () => (
     <tr>
-      <td colSpan={8} className="px-4 py-6">
+      <td colSpan={10} className="px-4 py-6">
         <div className="flex flex-col items-center justify-center space-y-2">
           <RefreshCw className="w-8 h-8 animate-spin text-amber-500" />
           <p className="text-bronze-600">Loading symbols...</p>
@@ -198,11 +244,18 @@ const SymbolsManagementContent: React.FC = () => {
 
   const renderEmptyState = () => (
     <tr>
-      <td colSpan={8} className="px-4 py-8 text-center">
+      <td colSpan={10} className="px-4 py-8 text-center">
         <div className="flex flex-col items-center justify-center space-y-2">
           <Database className="w-8 h-8 text-bronze-400" />
-          <p className="text-bronze-600 font-medium">No symbols found</p>
-          {(debouncedSearchQuery || selectedExchange || selectedSegment) && (
+          <p className="text-bronze-600 font-medium">
+            {brokerConnections.length === 0 
+              ? 'No connected brokers found' 
+              : 'No symbols found'
+            }
+          </p>
+          {brokerConnections.length === 0 ? (
+            <p className="text-bronze-500 text-sm">Connect a broker to see symbols</p>
+          ) : (debouncedSearchQuery || selectedExchange || selectedSegment || selectedBroker) && (
             <button
               onClick={handleResetFilters}
               className="text-amber-600 hover:text-amber-700 font-medium"
@@ -215,13 +268,44 @@ const SymbolsManagementContent: React.FC = () => {
     </tr>
   );
 
+  if (brokerConnections.length === 0 && !loading) {
+    return (
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-bronze-800">Symbols Management</h1>
+            <p className="text-bronze-600 mt-1">Manage and sync trading symbols across brokers</p>
+          </div>
+        </div>
+
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-3d p-8 border border-beige-200 text-center">
+          <WifiOff className="w-16 h-16 text-bronze-400 mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-bronze-800 mb-2">No Connected Brokers</h3>
+          <p className="text-bronze-600 mb-4">
+            You need to connect at least one broker account to manage symbols.
+          </p>
+          <motion.button
+            onClick={() => window.location.href = '/dashboard/brokers'}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-amber-500 to-bronze-600 text-white px-6 py-3 rounded-lg font-medium hover:shadow-3d-hover transition-all shadow-3d"
+          >
+            Connect Broker
+          </motion.button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-bronze-800">Symbols Management</h1>
-          <p className="text-bronze-600 mt-1">Manage and sync trading symbols across brokers</p>
+          <p className="text-bronze-600 mt-1">
+            Manage and sync trading symbols for {brokerConnections.length} connected broker{brokerConnections.length !== 1 ? 's' : ''}
+          </p>
         </div>
         
         <motion.button
@@ -235,6 +319,21 @@ const SymbolsManagementContent: React.FC = () => {
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
           <span>Refresh</span>
         </motion.button>
+      </div>
+
+      {/* Connected Brokers Info */}
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <div className="flex items-center space-x-2 mb-2">
+          <Wifi className="w-4 h-4 text-blue-600" />
+          <span className="font-medium text-blue-800">Connected Brokers</span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {brokerConnections.map(broker => (
+            <span key={broker.id} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+              {broker.broker_name} ({broker.connection_name})
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Sync Status Cards */}
@@ -310,7 +409,7 @@ const SymbolsManagementContent: React.FC = () => {
               <span>Filters</span>
             </motion.button>
 
-            {(searchQuery || selectedExchange || selectedSegment) && (
+            {(searchQuery || selectedExchange || selectedSegment || selectedBroker) && (
               <button
                 onClick={handleResetFilters}
                 className="px-3 py-2 text-sm text-bronze-600 hover:text-bronze-800"
@@ -328,8 +427,28 @@ const SymbolsManagementContent: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-beige-200"
+            className="grid grid-cols-1 md:grid-cols-4 gap-4 pt-4 border-t border-beige-200"
           >
+            <div>
+              <label htmlFor="broker-filter" className="block text-sm font-medium text-bronze-700 mb-1">
+                Broker
+              </label>
+              <select
+                id="broker-filter"
+                value={selectedBroker}
+                onChange={(e) => setSelectedBroker(e.target.value)}
+                className="w-full px-3 py-2 border border-beige-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                aria-label="Filter by broker"
+              >
+                <option value="">All Connected Brokers</option>
+                {brokerConnections.map(broker => (
+                  <option key={broker.id} value={broker.broker_name.toLowerCase()}>
+                    {broker.broker_name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            
             <div>
               <label htmlFor="exchange-filter" className="block text-sm font-medium text-bronze-700 mb-1">
                 Exchange
@@ -369,7 +488,7 @@ const SymbolsManagementContent: React.FC = () => {
         )}
       </div>
 
-      {/* Symbols Table */}
+      {/* Enhanced Symbols Table */}
       <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-3d border border-beige-200 overflow-hidden">
         <div className="px-4 py-3 border-b border-beige-200 flex justify-between items-center">
           <h2 className="text-lg font-semibold text-bronze-800">
@@ -389,13 +508,15 @@ const SymbolsManagementContent: React.FC = () => {
           <table className="w-full">
             <thead className="bg-beige-50">
               <tr>
+                <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">ID</th>
                 <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Symbol</th>
                 <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Name</th>
                 <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Exchange</th>
                 <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Segment</th>
                 <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Type</th>
                 <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Lot Size</th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Brokers</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">ISIN</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Broker Tokens</th>
                 <th className="px-4 py-3 text-left text-xs font-medium text-bronze-700 uppercase tracking-wider">Status</th>
               </tr>
             </thead>
@@ -410,18 +531,29 @@ const SymbolsManagementContent: React.FC = () => {
                   transition={{ delay: index * 0.02 }}
                   className="hover:bg-beige-50"
                 >
+                  <td className="px-4 py-3 text-sm text-bronze-600 font-mono">{symbol.id}</td>
                   <td className="px-4 py-3 text-sm font-medium text-bronze-800">{symbol.symbol}</td>
-                  <td className="px-4 py-3 text-sm text-bronze-600">{symbol.name}</td>
+                  <td className="px-4 py-3 text-sm text-bronze-600 max-w-xs truncate" title={symbol.name}>
+                    {symbol.name || 'N/A'}
+                  </td>
                   <td className="px-4 py-3 text-sm text-bronze-600">{symbol.exchange}</td>
                   <td className="px-4 py-3 text-sm text-bronze-600">{symbol.segment}</td>
                   <td className="px-4 py-3 text-sm text-bronze-600">{symbol.instrument_type}</td>
                   <td className="px-4 py-3 text-sm text-bronze-600">{symbol.lot_size}</td>
+                  <td className="px-4 py-3 text-sm text-bronze-600 font-mono text-xs">
+                    {symbol.isin || 'N/A'}
+                  </td>
                   <td className="px-4 py-3 text-sm text-bronze-600">
-                    <div className="flex flex-wrap gap-1">
+                    <div className="space-y-1">
                       {symbol.supported_brokers?.map(broker => (
-                        <span key={broker} className="px-2 py-1 bg-beige-100 text-bronze-700 rounded text-xs">
-                          {broker}
-                        </span>
+                        <div key={broker} className="flex items-center justify-between">
+                          <span className="px-2 py-1 bg-beige-100 text-bronze-700 rounded text-xs">
+                            {broker}
+                          </span>
+                          <span className="text-xs font-mono text-bronze-500">
+                            {symbol.broker_tokens?.[broker] || 'N/A'}
+                          </span>
+                        </div>
                       ))}
                     </div>
                   </td>

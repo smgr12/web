@@ -1,17 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X, RefreshCw, Database, AlertCircle, CheckCircle } from 'lucide-react';
-import { symbolsAPI } from '../../services/api';
+import { Search, X, RefreshCw, Database, AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
+import { symbolsAPI, brokerAPI } from '../../services/api';
 import toast from 'react-hot-toast';
 
 interface Symbol {
+  id: string;
   symbol: string;
   name: string;
   exchange: string;
   segment: string;
   instrument_type: string;
   supported_brokers: string[];
-  broker_tokens: string[];
+  broker_tokens: {[key: string]: string};
+  lot_size: number;
+  tick_size: number;
+  isin?: string;
+  expiry_date?: string;
+  strike_price?: number;
+  option_type?: string;
+}
+
+interface BrokerConnection {
+  id: number;
+  broker_name: string;
+  connection_name: string;
+  is_active: boolean;
+  is_authenticated: boolean;
 }
 
 interface SymbolSearchProps {
@@ -33,12 +48,14 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [syncStatus, setSyncStatus] = useState<any[]>([]);
+  const [brokerConnections, setBrokerConnections] = useState<BrokerConnection[]>([]);
   
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const debounceRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
+    fetchBrokerConnections();
     fetchSyncStatus();
     
     // Close dropdown when clicking outside
@@ -72,7 +89,20 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
         clearTimeout(debounceRef.current);
       }
     };
-  }, [query]);
+  }, [query, selectedBroker]);
+
+  const fetchBrokerConnections = async () => {
+    try {
+      const response = await brokerAPI.getConnections();
+      const activeConnections = response.data.connections.filter(
+        (conn: BrokerConnection) => conn.is_active && conn.is_authenticated
+      );
+      setBrokerConnections(activeConnections);
+    } catch (error) {
+      console.error('Failed to fetch broker connections:', error);
+      setBrokerConnections([]);
+    }
+  };
 
   const fetchSyncStatus = async () => {
     try {
@@ -80,7 +110,7 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
       setSyncStatus(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error('Failed to fetch sync status:', error);
-      setSyncStatus([]); // Ensure it's always an array
+      setSyncStatus([]);
     }
   };
 
@@ -89,12 +119,24 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
     
     setLoading(true);
     try {
+      // Get connected broker names
+      const connectedBrokerNames = brokerConnections.map(conn => conn.broker_name.toLowerCase());
+      
       // Use enhanced search for better results
       const response = await symbolsAPI.enhancedSymbolSearch(searchQuery, {
         broker: selectedBroker,
         limit: 20
       });
-      setSymbols(response.data || []);
+      
+      // Filter symbols to only show those supported by connected brokers
+      const allSymbols = response.data || [];
+      const filteredSymbols = allSymbols.filter(symbol => 
+        symbol.supported_brokers.some(broker => 
+          connectedBrokerNames.includes(broker.toLowerCase())
+        )
+      );
+      
+      setSymbols(filteredSymbols);
       setShowDropdown(true);
       setSelectedIndex(-1);
     } catch (error) {
@@ -102,7 +144,14 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
       // Fallback to basic search
       try {
         const fallbackResponse = await symbolsAPI.searchSymbols(searchQuery, null, 20);
-        setSymbols(fallbackResponse.data || []);
+        const allSymbols = fallbackResponse.data || [];
+        const connectedBrokerNames = brokerConnections.map(conn => conn.broker_name.toLowerCase());
+        const filteredSymbols = allSymbols.filter(symbol => 
+          symbol.supported_brokers.some(broker => 
+            connectedBrokerNames.includes(broker.toLowerCase())
+          )
+        );
+        setSymbols(filteredSymbols);
         setShowDropdown(true);
         setSelectedIndex(-1);
       } catch (fallbackError) {
@@ -158,7 +207,7 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
   const syncAllSymbols = async () => {
     try {
       await symbolsAPI.syncAllSymbols();
-      toast.success('Symbol sync started for all brokers');
+      toast.success('Symbol sync started for all connected brokers');
       fetchSyncStatus();
     } catch (error) {
       toast.error('Failed to start symbol sync');
@@ -171,7 +220,7 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
     const isSupported = symbol.supported_brokers.includes(selectedBroker);
     return {
       supported: isSupported,
-      token: isSupported ? symbol.broker_tokens[symbol.supported_brokers.indexOf(selectedBroker)] : null
+      token: isSupported ? symbol.broker_tokens[selectedBroker] : null
     };
   };
 
@@ -185,12 +234,34 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
     }
   };
 
-  const needsSync = !Array.isArray(syncStatus) || syncStatus.length === 0 || syncStatus.some(s => s.sync_status !== 'completed');
+  const needsSync = !Array.isArray(syncStatus) || syncStatus.length === 0 || 
+    syncStatus.some(s => s.sync_status !== 'completed');
+
+  const connectedBrokerNames = brokerConnections.map(conn => conn.broker_name);
 
   return (
     <div className={`relative ${className}`} ref={searchRef}>
+      {/* Connected Brokers Info */}
+      {brokerConnections.length > 0 && (
+        <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="flex items-center space-x-2 mb-2">
+            <CheckCircle className="w-4 h-4 text-blue-600" />
+            <span className="text-sm font-medium text-blue-800">
+              Searching symbols from {brokerConnections.length} connected broker{brokerConnections.length !== 1 ? 's' : ''}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-1">
+            {connectedBrokerNames.map(broker => (
+              <span key={broker} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+                {broker}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Sync Status Banner */}
-      {needsSync && (
+      {needsSync && brokerConnections.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -218,7 +289,7 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
       <div className="relative">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           {loading ? (
-            <RefreshCw className="w-4 h-4 text-gray-400 animate-spin" />
+            <Loader2 className="w-4 h-4 text-gray-400 animate-spin" />
           ) : (
             <Search className="w-4 h-4 text-gray-400" />
           )}
@@ -231,8 +302,9 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           onFocus={() => query.length >= 3 && setShowDropdown(true)}
-          placeholder={placeholder}
-          className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder={brokerConnections.length === 0 ? "Connect a broker first..." : placeholder}
+          disabled={brokerConnections.length === 0}
+          className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:cursor-not-allowed"
         />
         
         {query && (
@@ -259,7 +331,7 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
               
               return (
                 <div
-                  key={`${symbol.symbol}-${symbol.exchange}`}
+                  key={`${symbol.symbol}-${symbol.exchange}-${symbol.id}`}
                   onClick={() => handleSymbolSelect(symbol)}
                   className={`px-4 py-3 cursor-pointer border-b border-gray-100 last:border-b-0 hover:bg-gray-50 ${
                     index === selectedIndex ? 'bg-blue-50' : ''
@@ -282,34 +354,49 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
                           </span>
                         )}
                       </div>
-                      <div className="text-sm text-gray-600 mt-1">
-                        {symbol.name}
+                      <div className="text-sm text-gray-600 mt-1 truncate">
+                        {symbol.name || 'No description available'}
                       </div>
                       <div className="flex items-center space-x-2 mt-1">
                         <span className="text-xs text-gray-500">
-                          {symbol.instrument_type} • {symbol.segment}
+                          {symbol.instrument_type} • {symbol.segment} • Lot: {symbol.lot_size}
                         </span>
                         {selectedBroker && brokerSupport?.token && (
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-gray-500 font-mono">
                             Token: {brokerSupport.token}
                           </span>
                         )}
                       </div>
+                      {symbol.isin && (
+                        <div className="text-xs text-gray-500 mt-1 font-mono">
+                          ISIN: {symbol.isin}
+                        </div>
+                      )}
                     </div>
                     
-                    <div className="flex items-center space-x-1">
-                      {symbol.supported_brokers.map((broker, idx) => (
-                        <span
-                          key={idx}
-                          className={`px-2 py-1 text-xs rounded ${
-                            broker === selectedBroker 
-                              ? 'bg-blue-100 text-blue-800' 
-                              : 'bg-gray-100 text-gray-600'
-                          }`}
-                        >
-                          {broker}
-                        </span>
-                      ))}
+                    <div className="flex flex-col items-end space-y-1">
+                      <div className="flex flex-wrap gap-1 justify-end">
+                        {symbol.supported_brokers.slice(0, 3).map((broker, idx) => (
+                          <span
+                            key={idx}
+                            className={`px-2 py-1 text-xs rounded ${
+                              broker.toLowerCase() === selectedBroker?.toLowerCase()
+                                ? 'bg-blue-100 text-blue-800' 
+                                : 'bg-gray-100 text-gray-600'
+                            }`}
+                          >
+                            {broker}
+                          </span>
+                        ))}
+                        {symbol.supported_brokers.length > 3 && (
+                          <span className="text-xs text-gray-400">+{symbol.supported_brokers.length - 3}</span>
+                        )}
+                      </div>
+                      {selectedBroker && symbol.broker_tokens[selectedBroker] && (
+                        <div className="text-xs text-gray-500 font-mono">
+                          {symbol.broker_tokens[selectedBroker]}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -329,9 +416,26 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
           <div className="text-center text-gray-500">
             <Database className="w-8 h-8 mx-auto mb-2 text-gray-400" />
             <p className="text-sm">No symbols found for "{query}"</p>
-            <p className="text-xs mt-1">Try a different search term or sync symbol database</p>
+            <p className="text-xs mt-1">
+              {brokerConnections.length === 0 
+                ? 'Connect a broker to search symbols'
+                : 'Try a different search term or sync symbol database'
+              }
+            </p>
           </div>
         </motion.div>
+      )}
+
+      {/* No Connected Brokers */}
+      {brokerConnections.length === 0 && (
+        <div className="mt-2 p-3 bg-red-50 border border-red-200 rounded-lg">
+          <div className="flex items-center space-x-2">
+            <AlertCircle className="w-4 h-4 text-red-600" />
+            <span className="text-sm text-red-800">
+              No connected brokers found. Please connect a broker to search symbols.
+            </span>
+          </div>
+        </div>
       )}
     </div>
   );

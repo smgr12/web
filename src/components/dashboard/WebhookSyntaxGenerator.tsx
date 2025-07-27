@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Code, Copy, CheckCircle, Download, RefreshCw, Settings, 
   Zap, AlertCircle, BookOpen, ExternalLink, Play, FileText,
-  Webhook, Database, Shield, Search
+  Webhook, Database, Shield, Search, Wifi, WifiOff
 } from 'lucide-react';
 import { brokerAPI, symbolsAPI } from '../../services/api';
 import SymbolSearch from './SymbolSearch';
@@ -23,8 +23,18 @@ interface BrokerConfig {
   exampleValues: {[key: string]: any};
 }
 
+interface BrokerConnection {
+  id: number;
+  broker_name: string;
+  connection_name: string;
+  is_active: boolean;
+  is_authenticated: boolean;
+  webhook_url?: string;
+}
+
 const WebhookSyntaxGenerator: React.FC = () => {
-  const [selectedBroker, setSelectedBroker] = useState<string>('zerodha');
+  const [selectedBroker, setSelectedBroker] = useState<string>('');
+  const [brokerConnections, setBrokerConnections] = useState<BrokerConnection[]>([]);
   const [customFields, setCustomFields] = useState<{[key: string]: any}>({
     symbol: 'RELIANCE',
     action: 'BUY',
@@ -44,12 +54,11 @@ const WebhookSyntaxGenerator: React.FC = () => {
   });
   const [generatedSyntax, setGeneratedSyntax] = useState<any>(null);
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
-  const [brokerConnections, setBrokerConnections] = useState<any[]>([]);
   const [selectedSymbolData, setSelectedSymbolData] = useState<any>(null);
   const [validatingSymbol, setValidatingSymbol] = useState(false);
   const [symbolValidation, setSymbolValidation] = useState<any>(null);
 
-  // Comprehensive broker configurations
+  // Comprehensive broker configurations including MT4/MT5
   const brokerConfigs: BrokerConfig[] = [
     {
       id: 'zerodha',
@@ -88,16 +97,16 @@ const WebhookSyntaxGenerator: React.FC = () => {
       description: 'Next-generation trading platform with lightning-fast execution',
       webhookFormat: 'upstox',
       orderFields: {
-        required: ['symbol', 'action', 'quantity', 'order_type', 'product'],
-        optional: ['exchange', 'validity', 'price', 'trigger_price', 'disclosed_quantity', 'is_amo', 'tag']
+        required: ['instrument_token', 'quantity', 'product', 'validity', 'price', 'order_type', 'transaction_type'],
+        optional: ['disclosed_quantity', 'trigger_price', 'is_amo', 'tag']
       },
       fieldMappings: {
-        symbol: 'symbol',
-        action: 'action',
+        symbol: 'instrument_token',
+        action: 'transaction_type',
         quantity: 'quantity',
         order_type: 'order_type',
-        product: 'product', // Will be mapped: MIS->I, CNC->D
-        exchange: 'exchange', // Will be mapped: NSE->NSE_EQ
+        product: 'product',
+        exchange: 'exchange',
         validity: 'validity',
         price: 'price',
         trigger_price: 'trigger_price',
@@ -120,23 +129,24 @@ const WebhookSyntaxGenerator: React.FC = () => {
       description: 'Smart API with comprehensive trading solutions',
       webhookFormat: 'angel',
       orderFields: {
-        required: ['symbol', 'symboltoken', 'action', 'quantity', 'order_type', 'product'],
-        optional: ['exchange', 'validity', 'price', 'squareoff', 'stoploss']
+        required: ['variety', 'tradingsymbol', 'symboltoken', 'transactiontype', 'exchange', 'ordertype', 'producttype', 'duration', 'quantity'],
+        optional: ['price', 'squareoff', 'stoploss']
       },
       fieldMappings: {
-        symbol: 'symbol',
+        symbol: 'tradingsymbol',
         symboltoken: 'symboltoken',
-        action: 'action',
+        action: 'transactiontype',
         quantity: 'quantity',
-        order_type: 'order_type',
-        product: 'product', // Will be mapped: MIS->INTRADAY, CNC->DELIVERY
+        order_type: 'ordertype',
+        product: 'producttype',
         exchange: 'exchange',
-        validity: 'validity',
+        validity: 'duration',
         price: 'price',
         squareoff: 'squareoff',
         stoploss: 'stoploss'
       },
       exampleValues: {
+        variety: 'NORMAL',
         exchange: 'NSE',
         validity: 'DAY',
         squareoff: '0',
@@ -155,10 +165,10 @@ const WebhookSyntaxGenerator: React.FC = () => {
       },
       fieldMappings: {
         symbol: 'symbol',
-        action: 'action', // Will be mapped: BUY->B, SELL->S
+        action: 'action',
         quantity: 'quantity',
-        order_type: 'order_type', // Will be mapped: MARKET->MKT, LIMIT->LMT
-        product: 'product', // Will be mapped: MIS->I, CNC->C
+        order_type: 'order_type',
+        product: 'product',
         exchange: 'exchange',
         validity: 'validity',
         price: 'price',
@@ -181,10 +191,10 @@ const WebhookSyntaxGenerator: React.FC = () => {
       },
       fieldMappings: {
         symbol: 'symbol',
-        action: 'action', // Will be mapped: BUY->B, SELL->S
+        action: 'action',
         quantity: 'quantity',
-        order_type: 'order_type', // Will be mapped: MARKET->M, LIMIT->L
-        exchange: 'exchange', // Will be mapped: NSE->N, BSE->B
+        order_type: 'order_type',
+        exchange: 'exchange',
         price: 'price',
         disclosed_quantity: 'disclosed_quantity',
         is_intraday: 'is_intraday'
@@ -194,31 +204,89 @@ const WebhookSyntaxGenerator: React.FC = () => {
         disclosed_quantity: 0,
         is_intraday: true
       }
+    },
+    {
+      id: 'mt4',
+      name: 'MetaTrader 4',
+      logo: '📊',
+      description: 'Popular forex and CFD trading platform',
+      webhookFormat: 'mt4',
+      orderFields: {
+        required: ['symbol', 'action', 'volume', 'order_type'],
+        optional: ['price', 'stoploss', 'takeprofit', 'comment', 'magic']
+      },
+      fieldMappings: {
+        symbol: 'symbol',
+        action: 'action',
+        quantity: 'volume',
+        order_type: 'order_type',
+        price: 'price',
+        stoploss: 'stoploss',
+        takeprofit: 'takeprofit',
+        comment: 'comment',
+        magic: 'magic'
+      },
+      exampleValues: {
+        comment: 'TradingView',
+        magic: 12345
+      }
+    },
+    {
+      id: 'mt5',
+      name: 'MetaTrader 5',
+      logo: '📈',
+      description: 'Advanced multi-asset trading platform',
+      webhookFormat: 'mt5',
+      orderFields: {
+        required: ['symbol', 'action', 'volume', 'order_type'],
+        optional: ['price', 'stoploss', 'takeprofit', 'comment', 'magic', 'deviation']
+      },
+      fieldMappings: {
+        symbol: 'symbol',
+        action: 'action',
+        quantity: 'volume',
+        order_type: 'order_type',
+        price: 'price',
+        stoploss: 'stoploss',
+        takeprofit: 'takeprofit',
+        comment: 'comment',
+        magic: 'magic',
+        deviation: 'deviation'
+      },
+      exampleValues: {
+        comment: 'TradingView',
+        magic: 12345,
+        deviation: 10
+      }
     }
   ];
 
   useEffect(() => {
-    // Temporarily disable API calls for testing
-    setBrokerConnections([]);
-    generateSyntax();
-    
-    // Original API call (commented out for testing)
-    // fetchBrokerConnections();
+    fetchBrokerConnections();
   }, []);
 
   useEffect(() => {
-    generateSyntax();
+    if (selectedBroker) {
+      generateSyntax();
+    }
   }, [selectedBroker, customFields]);
 
   const fetchBrokerConnections = async () => {
-    // Temporarily disabled for testing
-    // try {
-    //   const response = await brokerAPI.getConnections();
-    //   setBrokerConnections(response.data.connections || []);
-    // } catch (error) {
-    //   console.error('Failed to fetch broker connections:', error);
-    //   setBrokerConnections([]);
-    // }
+    try {
+      const response = await brokerAPI.getConnections();
+      const activeConnections = response.data.connections.filter(
+        (conn: BrokerConnection) => conn.is_active && conn.is_authenticated
+      );
+      setBrokerConnections(activeConnections);
+      
+      // Auto-select first connected broker
+      if (activeConnections.length > 0 && !selectedBroker) {
+        setSelectedBroker(activeConnections[0].broker_name.toLowerCase());
+      }
+    } catch (error) {
+      console.error('Failed to fetch broker connections:', error);
+      setBrokerConnections([]);
+    }
   };
 
   const generateSyntax = () => {
@@ -252,33 +320,32 @@ const WebhookSyntaxGenerator: React.FC = () => {
 
       case 'upstox':
         payload = {
-          symbol: symbolToUse,
-          action: customFields.action || 'BUY',
+          instrument_token: tokenToUse,
           quantity: parseInt(customFields.quantity) || 1,
-          order_type: customFields.order_type || 'MARKET',
           product: customFields.product === 'MIS' ? 'I' : (customFields.product === 'CNC' ? 'D' : 'I'),
-          exchange: exchangeToUse === 'NSE' ? 'NSE_EQ' : exchangeToUse,
           validity: customFields.validity || 'DAY',
           price: customFields.order_type === 'LIMIT' ? (parseFloat(customFields.price) || 0) : 0,
-          trigger_price: ['SL', 'SL-M'].includes(customFields.order_type) ? (parseFloat(customFields.trigger_price) || 0) : 0,
+          order_type: customFields.order_type || 'MARKET',
+          transaction_type: customFields.action || 'BUY',
           disclosed_quantity: parseInt(customFields.disclosed_quantity) || 0,
+          trigger_price: ['SL', 'SL-M'].includes(customFields.order_type) ? (parseFloat(customFields.trigger_price) || 0) : 0,
           is_amo: customFields.is_amo || false,
-          tag: customFields.tag || 'TradingView',
-          instrument_token: tokenToUse
+          tag: customFields.tag || 'TradingView'
         };
         break;
 
       case 'angel':
         payload = {
-          symbol: symbolToUse + (symbolToUse.includes('-') ? '' : '-EQ'),
+          variety: 'NORMAL',
+          tradingsymbol: symbolToUse + (symbolToUse.includes('-') ? '' : '-EQ'),
           symboltoken: tokenToUse,
-          action: customFields.action || 'BUY',
-          quantity: parseInt(customFields.quantity) || 1,
-          order_type: customFields.order_type || 'MARKET',
-          product: customFields.product === 'MIS' ? 'INTRADAY' : (customFields.product === 'CNC' ? 'DELIVERY' : 'INTRADAY'),
+          transactiontype: customFields.action || 'BUY',
           exchange: exchangeToUse,
-          validity: customFields.validity || 'DAY',
+          ordertype: customFields.order_type || 'MARKET',
+          producttype: customFields.product === 'MIS' ? 'INTRADAY' : (customFields.product === 'CNC' ? 'DELIVERY' : 'INTRADAY'),
+          duration: customFields.validity || 'DAY',
           price: customFields.order_type === 'LIMIT' ? (parseFloat(customFields.price) || 0).toString() : '0',
+          quantity: parseInt(customFields.quantity) || 1,
           squareoff: (parseFloat(customFields.squareoff) || 0).toString(),
           stoploss: ['SL', 'SL-M'].includes(customFields.order_type) ? (parseFloat(customFields.stoploss) || 0).toString() : '0'
         };
@@ -311,13 +378,42 @@ const WebhookSyntaxGenerator: React.FC = () => {
         };
         break;
 
+      case 'mt4':
+        payload = {
+          symbol: symbolToUse,
+          action: customFields.action || 'BUY',
+          volume: parseFloat(customFields.quantity) || 0.01,
+          order_type: customFields.order_type || 'MARKET',
+          price: customFields.order_type === 'LIMIT' ? (parseFloat(customFields.price) || 0) : 0,
+          stoploss: parseFloat(customFields.stoploss) || 0,
+          takeprofit: parseFloat(customFields.takeprofit) || 0,
+          comment: customFields.comment || 'TradingView',
+          magic: parseInt(customFields.magic) || 12345
+        };
+        break;
+
+      case 'mt5':
+        payload = {
+          symbol: symbolToUse,
+          action: customFields.action || 'BUY',
+          volume: parseFloat(customFields.quantity) || 0.01,
+          order_type: customFields.order_type || 'MARKET',
+          price: customFields.order_type === 'LIMIT' ? (parseFloat(customFields.price) || 0) : 0,
+          stoploss: parseFloat(customFields.stoploss) || 0,
+          takeprofit: parseFloat(customFields.takeprofit) || 0,
+          comment: customFields.comment || 'TradingView',
+          magic: parseInt(customFields.magic) || 12345,
+          deviation: parseInt(customFields.deviation) || 10
+        };
+        break;
+
       default:
         payload = {};
     }
 
     // Remove zero values and empty strings for cleaner output
     Object.keys(payload).forEach(key => {
-      if (payload[key] === 0 && !['price', 'trigger_price', 'disclosed_quantity'].includes(key)) {
+      if (payload[key] === 0 && !['price', 'trigger_price', 'disclosed_quantity', 'stoploss', 'takeprofit'].includes(key)) {
         delete payload[key];
       }
       if (payload[key] === '' || payload[key] === null || payload[key] === undefined) {
@@ -364,28 +460,6 @@ const WebhookSyntaxGenerator: React.FC = () => {
     }
   };
 
-  const generateWebhookPayload = async () => {
-    if (!selectedSymbolData || !selectedBroker) {
-      toast.error('Please select a valid symbol first');
-      return;
-    }
-    
-    try {
-      const response = await symbolsAPI.generateWebhookPayload({
-        symbol: selectedSymbolData.symbol,
-        exchange: selectedSymbolData.exchange,
-        brokerName: selectedBroker,
-        orderParams: customFields
-      });
-      
-      setGeneratedSyntax(response.data);
-      toast.success('Webhook payload generated successfully');
-    } catch (error) {
-      console.error('Failed to generate webhook payload:', error);
-      toast.error('Failed to generate webhook payload');
-    }
-  };
-
   const copyToClipboard = (text: string, section: string) => {
     navigator.clipboard.writeText(text);
     setCopiedSection(section);
@@ -423,13 +497,13 @@ ${JSON.stringify(generatedSyntax.payload, null, 2)}
 
 ### Step 2: Configure Webhook
 1. In the Notifications tab, enable "Webhook URL"
-2. Enter your webhook URL: \`YOUR_WEBHOOK_URL_HERE\`
+2. Enter your webhook URL: \`${getWebhookUrl()}\`
 3. In the "Message" field, paste the JSON payload above
 
 ### Step 3: Customize Payload
-- Replace \`YOUR_WEBHOOK_URL_HERE\` with your actual webhook URL
-- Modify symbol, quantity, and other parameters as needed
+- Replace values as needed for your strategy
 - Use TradingView variables like {{close}} for dynamic values
+- Test with small quantities first
 
 ### Step 4: Test and Activate
 1. Test your alert with a small quantity first
@@ -469,6 +543,47 @@ Generated by AutoTraderHub - ${new Date().toISOString()}
     return brokerConfigs.find(b => b.id === selectedBroker);
   };
 
+  const getConnectedBrokerConfigs = () => {
+    const connectedBrokerNames = brokerConnections.map(conn => conn.broker_name.toLowerCase());
+    return brokerConfigs.filter(config => connectedBrokerNames.includes(config.id));
+  };
+
+  const connectedBrokerConfigs = getConnectedBrokerConfigs();
+
+  if (brokerConnections.length === 0) {
+    return (
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold text-bronze-800 flex items-center">
+              <Webhook className="w-8 h-8 mr-3 text-amber-600" />
+              Webhook Syntax Generator
+            </h1>
+            <p className="text-bronze-600 mt-1">
+              Generate broker-specific webhook payloads for TradingView alerts
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-3d p-8 border border-beige-200 text-center">
+          <WifiOff className="w-16 h-16 text-bronze-400 mx-auto mb-4" />
+          <h3 className="text-lg font-medium text-bronze-800 mb-2">No Connected Brokers</h3>
+          <p className="text-bronze-600 mb-4">
+            You need to connect at least one broker account to generate webhook syntax.
+          </p>
+          <motion.button
+            onClick={() => window.location.href = '/dashboard/brokers'}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-amber-500 to-bronze-600 text-white px-6 py-3 rounded-lg font-medium hover:shadow-3d-hover transition-all shadow-3d"
+          >
+            Connect Broker
+          </motion.button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -483,7 +598,7 @@ Generated by AutoTraderHub - ${new Date().toISOString()}
             Webhook Syntax Generator
           </h1>
           <p className="text-bronze-600 mt-1">
-            Generate broker-specific webhook payloads for TradingView alerts
+            Generate broker-specific webhook payloads for {brokerConnections.length} connected broker{brokerConnections.length !== 1 ? 's' : ''}
           </p>
         </div>
         
@@ -508,20 +623,23 @@ Generated by AutoTraderHub - ${new Date().toISOString()}
             <RefreshCw className="w-4 h-4" />
             <span>Regenerate</span>
           </motion.button>
-          
-          {selectedSymbolData && (
-            <motion.button
-              onClick={generateWebhookPayload}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors shadow-3d"
-            >
-              <Zap className="w-4 h-4" />
-              <span>Generate with Validated Data</span>
-            </motion.button>
-          )}
         </div>
       </motion.div>
+
+      {/* Connected Brokers Info */}
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <div className="flex items-center space-x-2 mb-2">
+          <Wifi className="w-4 h-4 text-blue-600" />
+          <span className="font-medium text-blue-800">Connected Brokers</span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {brokerConnections.map(broker => (
+            <span key={broker.id} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+              {broker.broker_name} ({broker.connection_name})
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* Broker Selection */}
       <motion.div
@@ -532,11 +650,11 @@ Generated by AutoTraderHub - ${new Date().toISOString()}
       >
         <h2 className="text-xl font-bold text-bronze-800 mb-4 flex items-center">
           <Database className="w-5 h-5 mr-2 text-amber-600" />
-          Select Your Broker
+          Select Connected Broker
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {brokerConfigs.map((broker) => (
+          {connectedBrokerConfigs.map((broker) => (
             <motion.div
               key={broker.id}
               onClick={() => setSelectedBroker(broker.id)}
@@ -567,244 +685,281 @@ Generated by AutoTraderHub - ${new Date().toISOString()}
       </motion.div>
 
       {/* Symbol Selection */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15 }}
-        className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-3d border border-beige-200"
-      >
-        <h2 className="text-xl font-bold text-bronze-800 mb-4 flex items-center">
-          <Search className="w-5 h-5 mr-2 text-amber-600" />
-          Select Trading Symbol
-        </h2>
-        
-        <div className="space-y-4">
-          <SymbolSearch
-            onSymbolSelect={(symbol) => {
-              setCustomFields({
-                ...customFields,
-                symbol: symbol.symbol,
-                exchange: symbol.exchange,
-                symboltoken: symbol.broker_tokens?.[0] || customFields.symboltoken
-              });
-              
-              // Validate symbol for selected broker
-              validateSymbolForBroker(symbol.symbol, symbol.exchange);
-            }}
-            selectedBroker={selectedBroker}
-            placeholder="Search for trading symbols..."
-            className="w-full"
-          />
+      {selectedBroker && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-3d border border-beige-200"
+        >
+          <h2 className="text-xl font-bold text-bronze-800 mb-4 flex items-center">
+            <Search className="w-5 h-5 mr-2 text-amber-600" />
+            Select Trading Symbol
+          </h2>
           
-          {/* Symbol Validation Status */}
-          {validatingSymbol && (
-            <div className="flex items-center space-x-2 text-blue-600">
-              <RefreshCw className="w-4 h-4 animate-spin" />
-              <span className="text-sm">Validating symbol for {selectedBroker}...</span>
-            </div>
-          )}
-          
-          {symbolValidation && (
-            <div className={`p-3 rounded-lg border ${
-              symbolValidation.valid 
-                ? 'bg-green-50 border-green-200' 
-                : 'bg-red-50 border-red-200'
-            }`}>
-              <div className="flex items-center space-x-2">
-                {symbolValidation.valid ? (
-                  <CheckCircle className="w-4 h-4 text-green-600" />
-                ) : (
-                  <AlertCircle className="w-4 h-4 text-red-600" />
-                )}
-                <span className={`text-sm font-medium ${
-                  symbolValidation.valid ? 'text-green-800' : 'text-red-800'
-                }`}>
-                  {symbolValidation.valid 
-                    ? `Symbol validated for ${selectedBroker}` 
-                    : symbolValidation.error
-                  }
-                </span>
+          <div className="space-y-4">
+            <SymbolSearch
+              onSymbolSelect={(symbol) => {
+                setCustomFields({
+                  ...customFields,
+                  symbol: symbol.symbol,
+                  exchange: symbol.exchange,
+                  symboltoken: symbol.broker_tokens?.[selectedBroker] || customFields.symboltoken,
+                  instrument_token: symbol.broker_tokens?.[selectedBroker] || customFields.instrument_token
+                });
+                
+                // Validate symbol for selected broker
+                validateSymbolForBroker(symbol.symbol, symbol.exchange);
+              }}
+              selectedBroker={selectedBroker}
+              placeholder="Type 3+ letters to search symbols..."
+              className="w-full"
+            />
+            
+            {/* Symbol Validation Status */}
+            {validatingSymbol && (
+              <div className="flex items-center space-x-2 text-blue-600">
+                <RefreshCw className="w-4 h-4 animate-spin" />
+                <span className="text-sm">Validating symbol for {selectedBroker}...</span>
               </div>
-              
-              {symbolValidation.valid && selectedSymbolData && (
-                <div className="mt-2 text-xs text-green-700">
-                  <p><strong>Token:</strong> {selectedSymbolData.broker_token}</p>
-                  <p><strong>Broker Symbol:</strong> {selectedSymbolData.broker_symbol}</p>
-                  <p><strong>Exchange:</strong> {selectedSymbolData.broker_exchange}</p>
+            )}
+            
+            {symbolValidation && (
+              <div className={`p-3 rounded-lg border ${
+                symbolValidation.valid 
+                  ? 'bg-green-50 border-green-200' 
+                  : 'bg-red-50 border-red-200'
+              }`}>
+                <div className="flex items-center space-x-2">
+                  {symbolValidation.valid ? (
+                    <CheckCircle className="w-4 h-4 text-green-600" />
+                  ) : (
+                    <AlertCircle className="w-4 h-4 text-red-600" />
+                  )}
+                  <span className={`text-sm font-medium ${
+                    symbolValidation.valid ? 'text-green-800' : 'text-red-800'
+                  }`}>
+                    {symbolValidation.valid 
+                      ? `Symbol validated for ${selectedBroker}` 
+                      : symbolValidation.error
+                    }
+                  </span>
                 </div>
-              )}
-              
-              {!symbolValidation.valid && symbolValidation.suggestions?.length > 0 && (
-                <div className="mt-2">
-                  <p className="text-xs text-red-700 mb-1">Similar symbols:</p>
-                  <div className="flex flex-wrap gap-1">
-                    {symbolValidation.suggestions.map((suggestion: any, index: number) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setCustomFields({
-                            ...customFields,
-                            symbol: suggestion.symbol,
-                            exchange: suggestion.exchange
-                          });
-                          validateSymbolForBroker(suggestion.symbol, suggestion.exchange);
-                        }}
-                        className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded hover:bg-red-200 transition-colors"
-                      >
-                        {suggestion.symbol}
-                      </button>
-                    ))}
+                
+                {symbolValidation.valid && selectedSymbolData && (
+                  <div className="mt-2 text-xs text-green-700">
+                    <p><strong>Token:</strong> {selectedSymbolData.broker_token}</p>
+                    <p><strong>Broker Symbol:</strong> {selectedSymbolData.broker_symbol}</p>
+                    <p><strong>Exchange:</strong> {selectedSymbolData.broker_exchange}</p>
                   </div>
-                </div>
-              )}
-            </div>
-          )}
-          
-          <div className="text-sm text-bronze-600">
-            <p>💡 <strong>Tip:</strong> Use the search above to find symbols or enter them manually in the configuration below.</p>
-            <p>The search will automatically populate the symbol, exchange, and token fields.</p>
+                )}
+              </div>
+            )}
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
 
       {/* Order Configuration */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-3d border border-beige-200"
-      >
-        <h2 className="text-xl font-bold text-bronze-800 mb-4 flex items-center">
-          <Settings className="w-5 h-5 mr-2 text-amber-600" />
-          Configure Order Parameters
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Basic Fields */}
-          <div>
-            <label className="block text-sm font-medium text-bronze-700 mb-1">Symbol *</label>
-            <input
-              type="text"
-              value={customFields.symbol}
-              onChange={(e) => setCustomFields({...customFields, symbol: e.target.value.toUpperCase()})}
-              className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-              placeholder="RELIANCE"
-            />
-          </div>
+      {selectedBroker && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-3d border border-beige-200"
+        >
+          <h2 className="text-xl font-bold text-bronze-800 mb-4 flex items-center">
+            <Settings className="w-5 h-5 mr-2 text-amber-600" />
+            Configure Order Parameters
+          </h2>
           
-          <div>
-            <label className="block text-sm font-medium text-bronze-700 mb-1">Action *</label>
-            <select
-              value={customFields.action}
-              onChange={(e) => setCustomFields({...customFields, action: e.target.value})}
-              className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-            >
-              <option value="BUY">BUY</option>
-              <option value="SELL">SELL</option>
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-bronze-700 mb-1">Quantity *</label>
-            <input
-              type="number"
-              value={customFields.quantity}
-              onChange={(e) => setCustomFields({...customFields, quantity: e.target.value})}
-              className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-              min="1"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-bronze-700 mb-1">Order Type *</label>
-            <select
-              value={customFields.order_type}
-              onChange={(e) => setCustomFields({...customFields, order_type: e.target.value})}
-              className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-            >
-              <option value="MARKET">MARKET</option>
-              <option value="LIMIT">LIMIT</option>
-              <option value="SL">STOP LOSS</option>
-              <option value="SL-M">STOP LOSS MARKET</option>
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-bronze-700 mb-1">Product *</label>
-            <select
-              value={customFields.product}
-              onChange={(e) => setCustomFields({...customFields, product: e.target.value})}
-              className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-            >
-              <option value="MIS">MIS (Intraday)</option>
-              <option value="CNC">CNC (Delivery)</option>
-              <option value="NRML">NRML (Normal)</option>
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-bronze-700 mb-1">Exchange</label>
-            <select
-              value={customFields.exchange}
-              onChange={(e) => setCustomFields({...customFields, exchange: e.target.value})}
-              className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-            >
-              <option value="NSE">NSE</option>
-              <option value="BSE">BSE</option>
-              <option value="NFO">NFO</option>
-              <option value="BFO">BFO</option>
-            </select>
-          </div>
-
-          {/* Conditional Fields */}
-          {customFields.order_type === 'LIMIT' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Basic Fields */}
             <div>
-              <label className="block text-sm font-medium text-bronze-700 mb-1">Price</label>
-              <input
-                type="number"
-                value={customFields.price}
-                onChange={(e) => setCustomFields({...customFields, price: e.target.value})}
-                className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                placeholder="2500"
-                step="0.01"
-              />
-            </div>
-          )}
-
-          {(customFields.order_type === 'SL' || customFields.order_type === 'SL-M') && (
-            <div>
-              <label className="block text-sm font-medium text-bronze-700 mb-1">Trigger Price</label>
-              <input
-                type="number"
-                value={customFields.trigger_price}
-                onChange={(e) => setCustomFields({...customFields, trigger_price: e.target.value})}
-                className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                placeholder="2450"
-                step="0.01"
-              />
-            </div>
-          )}
-
-          {/* Angel Broking specific fields */}
-          {selectedBroker === 'angel' && (
-            <div>
-              <label className="block text-sm font-medium text-bronze-700 mb-1">Symbol Token *</label>
+              <label className="block text-sm font-medium text-bronze-700 mb-1">Symbol *</label>
               <input
                 type="text"
-                value={customFields.symboltoken}
-                onChange={(e) => setCustomFields({...customFields, symboltoken: e.target.value})}
+                value={customFields.symbol}
+                onChange={(e) => setCustomFields({...customFields, symbol: e.target.value.toUpperCase()})}
                 className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                placeholder="2885"
+                placeholder="RELIANCE"
               />
-              <p className="text-xs text-bronze-500 mt-1">Required for Angel Broking orders</p>
             </div>
-          )}
-        </div>
-      </motion.div>
+            
+            <div>
+              <label className="block text-sm font-medium text-bronze-700 mb-1">Action *</label>
+              <select
+                value={customFields.action}
+                onChange={(e) => setCustomFields({...customFields, action: e.target.value})}
+                className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              >
+                <option value="BUY">BUY</option>
+                <option value="SELL">SELL</option>
+              </select>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-bronze-700 mb-1">
+                {['mt4', 'mt5'].includes(selectedBroker) ? 'Volume *' : 'Quantity *'}
+              </label>
+              <input
+                type="number"
+                value={customFields.quantity}
+                onChange={(e) => setCustomFields({...customFields, quantity: e.target.value})}
+                className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                min={['mt4', 'mt5'].includes(selectedBroker) ? "0.01" : "1"}
+                step={['mt4', 'mt5'].includes(selectedBroker) ? "0.01" : "1"}
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-bronze-700 mb-1">Order Type *</label>
+              <select
+                value={customFields.order_type}
+                onChange={(e) => setCustomFields({...customFields, order_type: e.target.value})}
+                className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              >
+                <option value="MARKET">MARKET</option>
+                <option value="LIMIT">LIMIT</option>
+                {!['mt4', 'mt5'].includes(selectedBroker) && (
+                  <>
+                    <option value="SL">STOP LOSS</option>
+                    <option value="SL-M">STOP LOSS MARKET</option>
+                  </>
+                )}
+              </select>
+            </div>
+            
+            {!['mt4', 'mt5'].includes(selectedBroker) && (
+              <div>
+                <label className="block text-sm font-medium text-bronze-700 mb-1">Product *</label>
+                <select
+                  value={customFields.product}
+                  onChange={(e) => setCustomFields({...customFields, product: e.target.value})}
+                  className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                >
+                  <option value="MIS">MIS (Intraday)</option>
+                  <option value="CNC">CNC (Delivery)</option>
+                  <option value="NRML">NRML (Normal)</option>
+                </select>
+              </div>
+            )}
+            
+            <div>
+              <label className="block text-sm font-medium text-bronze-700 mb-1">Exchange</label>
+              <select
+                value={customFields.exchange}
+                onChange={(e) => setCustomFields({...customFields, exchange: e.target.value})}
+                className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              >
+                {['mt4', 'mt5'].includes(selectedBroker) ? (
+                  <>
+                    <option value="FOREX">FOREX</option>
+                    <option value="METALS">METALS</option>
+                    <option value="INDICES">INDICES</option>
+                    <option value="CRYPTO">CRYPTO</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="NSE">NSE</option>
+                    <option value="BSE">BSE</option>
+                    <option value="NFO">NFO</option>
+                    <option value="BFO">BFO</option>
+                  </>
+                )}
+              </select>
+            </div>
+
+            {/* Conditional Fields */}
+            {customFields.order_type === 'LIMIT' && (
+              <div>
+                <label className="block text-sm font-medium text-bronze-700 mb-1">Price</label>
+                <input
+                  type="number"
+                  value={customFields.price}
+                  onChange={(e) => setCustomFields({...customFields, price: e.target.value})}
+                  className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  placeholder="2500"
+                  step="0.01"
+                />
+              </div>
+            )}
+
+            {/* MT4/MT5 specific fields */}
+            {['mt4', 'mt5'].includes(selectedBroker) && (
+              <>
+                <div>
+                  <label className="block text-sm font-medium text-bronze-700 mb-1">Stop Loss</label>
+                  <input
+                    type="number"
+                    value={customFields.stoploss}
+                    onChange={(e) => setCustomFields({...customFields, stoploss: e.target.value})}
+                    className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    placeholder="0"
+                    step="0.01"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-bronze-700 mb-1">Take Profit</label>
+                  <input
+                    type="number"
+                    value={customFields.takeprofit}
+                    onChange={(e) => setCustomFields({...customFields, takeprofit: e.target.value})}
+                    className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    placeholder="0"
+                    step="0.01"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-bronze-700 mb-1">Magic Number</label>
+                  <input
+                    type="number"
+                    value={customFields.magic}
+                    onChange={(e) => setCustomFields({...customFields, magic: e.target.value})}
+                    className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                    placeholder="12345"
+                  />
+                </div>
+              </>
+            )}
+
+            {/* Angel Broking specific fields */}
+            {selectedBroker === 'angel' && (
+              <div>
+                <label className="block text-sm font-medium text-bronze-700 mb-1">Symbol Token *</label>
+                <input
+                  type="text"
+                  value={customFields.symboltoken}
+                  onChange={(e) => setCustomFields({...customFields, symboltoken: e.target.value})}
+                  className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  placeholder="2885"
+                />
+                <p className="text-xs text-bronze-500 mt-1">Required for Angel Broking orders</p>
+              </div>
+            )}
+
+            {/* Upstox specific fields */}
+            {selectedBroker === 'upstox' && (
+              <div>
+                <label className="block text-sm font-medium text-bronze-700 mb-1">Instrument Token *</label>
+                <input
+                  type="text"
+                  value={customFields.instrument_token || customFields.symboltoken}
+                  onChange={(e) => setCustomFields({...customFields, instrument_token: e.target.value, symboltoken: e.target.value})}
+                  className="w-full px-3 py-2 bg-cream-50 border border-beige-200 rounded-lg text-bronze-800 focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  placeholder="NSE_EQ|INE002A01018"
+                />
+                <p className="text-xs text-bronze-500 mt-1">Required for Upstox orders (format: NSE_EQ|ISIN)</p>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      )}
 
       {/* Generated Syntax Display */}
       <AnimatePresence>
-        {generatedSyntax && (
+        {generatedSyntax && selectedBroker && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -843,73 +998,6 @@ Generated by AutoTraderHub - ${new Date().toISOString()}
                 Copy this URL and paste it in your TradingView alert webhook configuration
               </p>
             </motion.div>
-
-            {/* Field Requirements */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <motion.div
-                whileHover={{ scale: 1.01 }}
-                className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-3d border border-red-200"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-bronze-800 flex items-center">
-                    <AlertCircle className="w-5 h-5 mr-2 text-red-600" />
-                    Required Fields
-                  </h3>
-                  <motion.button
-                    onClick={() => copyToClipboard(generatedSyntax.config.orderFields.required.join(', '), 'Required Fields')}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="text-amber-600 hover:text-amber-500"
-                  >
-                    {copiedSection === 'Required Fields' ? (
-                      <CheckCircle className="w-5 h-5" />
-                    ) : (
-                      <Copy className="w-5 h-5" />
-                    )}
-                  </motion.button>
-                </div>
-                <div className="space-y-2">
-                  {generatedSyntax.config.orderFields.required.map((field: string, index: number) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <code className="text-sm text-bronze-700 bg-red-50 px-2 py-1 rounded">{field}</code>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.01 }}
-                className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-3d border border-blue-200"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-bronze-800 flex items-center">
-                    <Settings className="w-5 h-5 mr-2 text-blue-600" />
-                    Optional Fields
-                  </h3>
-                  <motion.button
-                    onClick={() => copyToClipboard(generatedSyntax.config.orderFields.optional.join(', '), 'Optional Fields')}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="text-amber-600 hover:text-amber-500"
-                  >
-                    {copiedSection === 'Optional Fields' ? (
-                      <CheckCircle className="w-5 h-5" />
-                    ) : (
-                      <Copy className="w-5 h-5" />
-                    )}
-                  </motion.button>
-                </div>
-                <div className="space-y-2">
-                  {generatedSyntax.config.orderFields.optional.map((field: string, index: number) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <code className="text-sm text-bronze-700 bg-blue-50 px-2 py-1 rounded">{field}</code>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
 
             {/* Generated Payload */}
             <motion.div
@@ -974,85 +1062,6 @@ Generated by AutoTraderHub - ${new Date().toISOString()}
                   <li>Paste the JSON payload in the Message field</li>
                   <li>Test and activate your alert</li>
                 </ol>
-              </div>
-            </motion.div>
-
-            {/* TradingView Setup Guide */}
-            <motion.div
-              whileHover={{ scale: 1.005 }}
-              className="bg-gradient-to-r from-amber-50 to-bronze-50 rounded-2xl p-6 border border-amber-200 shadow-3d"
-            >
-              <h3 className="text-lg font-bold text-bronze-800 mb-4 flex items-center">
-                <Play className="w-5 h-5 mr-2 text-amber-600" />
-                TradingView Setup Guide
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                    <div>
-                      <p className="text-bronze-800 font-medium">Create Alert</p>
-                      <p className="text-bronze-600 text-sm">Open TradingView chart and click Alert button</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
-                    <div>
-                      <p className="text-bronze-800 font-medium">Configure Webhook</p>
-                      <p className="text-bronze-600 text-sm">Enable "Webhook URL" in Notifications tab</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
-                    <div>
-                      <p className="text-bronze-800 font-medium">Add Payload</p>
-                      <p className="text-bronze-600 text-sm">Paste JSON payload in Message field</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</div>
-                    <div>
-                      <p className="text-bronze-800 font-medium">Test Alert</p>
-                      <p className="text-bronze-600 text-sm">Test with small quantity first</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">5</div>
-                    <div>
-                      <p className="text-bronze-800 font-medium">Monitor Trades</p>
-                      <p className="text-bronze-600 text-sm">Check execution in Orders dashboard</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">6</div>
-                    <div>
-                      <p className="text-bronze-800 font-medium">Go Live</p>
-                      <p className="text-bronze-600 text-sm">Activate alert for automated trading</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 p-4 bg-amber-100 rounded-lg">
-                <h4 className="font-bold text-amber-800 mb-2 flex items-center">
-                  <Shield className="w-4 h-4 mr-1" />
-                  Important Safety Tips:
-                </h4>
-                <ul className="text-amber-700 text-sm space-y-1">
-                  <li>• Always test with small quantities before going live</li>
-                  <li>• Ensure sufficient margin in your broker account</li>
-                  <li>• Monitor your positions regularly</li>
-                  <li>• Keep your API credentials secure</li>
-                  <li>• Use stop-loss orders to manage risk</li>
-                </ul>
               </div>
             </motion.div>
           </motion.div>

@@ -5,6 +5,7 @@ import kiteService from '../services/kiteService.js';
 import upstoxService from '../services/upstoxService.js';
 import angelService from '../services/angelService.js';
 import shoonyaService from '../services/shoonyaService.js';
+import mtSocketService from '../services/mtSocketService.js';
 import orderStatusService from '../services/orderStatusService.js';
 import createLogger from '../utils/logger.js';
 
@@ -121,6 +122,33 @@ function formatOrderPayload(payload, brokerName, debugLogs) {
       IsVTD: false,
       IOCOrder: false,
       IsIntraday: payload.product === 'MIS'
+    };
+  } else if (brokerName.toLowerCase() === 'mt4') {
+    // For MT4, format according to MT Socket API requirements
+    formatted = {
+      symbol: symbolStr,
+      action: payload.action.toUpperCase(), // BUY or SELL
+      volume: parseFloat(payload.quantity || payload.volume || 0.01),
+      order_type: payload.order_type || 'MARKET',
+      price: payload.order_type === 'LIMIT' ? parseFloat(payload.price || 0) : 0,
+      stoploss: parseFloat(payload.stoploss || 0),
+      takeprofit: parseFloat(payload.takeprofit || 0),
+      comment: payload.comment || 'TradingView',
+      magic: parseInt(payload.magic || 12345)
+    };
+  } else if (brokerName.toLowerCase() === 'mt5') {
+    // For MT5, format according to MT Socket API requirements
+    formatted = {
+      symbol: symbolStr,
+      action: payload.action.toUpperCase(), // BUY or SELL
+      volume: parseFloat(payload.quantity || payload.volume || 0.01),
+      order_type: payload.order_type || 'MARKET',
+      price: payload.order_type === 'LIMIT' ? parseFloat(payload.price || 0) : 0,
+      stoploss: parseFloat(payload.stoploss || 0),
+      takeprofit: parseFloat(payload.takeprofit || 0),
+      comment: payload.comment || 'TradingView',
+      magic: parseInt(payload.magic || 12345),
+      deviation: parseInt(payload.deviation || 10)
     };
   } else {
     // Default format for other brokers
@@ -291,6 +319,13 @@ router.post('/:userId/:webhookId', async (req, res) => {
         debugLogs.push(`🔍 Clean orderParams being sent to shoonyaService: ${JSON.stringify(cleanOrderParams)}`);
         
         brokerResponse = await shoonyaService.placeOrder(brokerConnection.id, cleanOrderParams);
+      } else if (brokerConnection.broker_name.toLowerCase() === 'mt4' || brokerConnection.broker_name.toLowerCase() === 'mt5') {
+        // Create a clean copy of orderParams for MT4/MT5
+        const cleanOrderParams = { ...orderParams };
+        console.log('🔍 Clean orderParams being sent to mtSocketService:', JSON.stringify(cleanOrderParams, null, 2));
+        debugLogs.push(`🔍 Clean orderParams being sent to mtSocketService: ${JSON.stringify(cleanOrderParams)}`);
+        
+        brokerResponse = await mtSocketService.placeOrder(brokerConnection.id, cleanOrderParams);
       } else {
         brokerResponse = { success: true, order_id: `MOCK_${Date.now()}`, data: { status: 'COMPLETE' } };
       }
@@ -329,6 +364,9 @@ router.post('/:userId/:webhookId', async (req, res) => {
           } else if (brokerConnection.broker_name.toLowerCase() === 'shoonya') {
             // Shoonya position sync would be implemented here
             // await shoonyaService.syncPositions(brokerConnection.id);
+          } else if (brokerConnection.broker_name.toLowerCase() === 'mt4' || brokerConnection.broker_name.toLowerCase() === 'mt5') {
+            // MT4/MT5 position sync would be implemented here
+            // await mtSocketService.syncPositions(brokerConnection.id);
           }
           debugLogs.push('🔄 Positions synced successfully.');
         } catch (syncError) {
