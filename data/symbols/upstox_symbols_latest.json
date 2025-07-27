@@ -1,0 +1,5308 @@
+{
+  "broker": "upstox",
+  "timestamp": "2025-07-18T03:10:55.839Z",
+  "total_symbols": 589,
+  "symbols": [
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    },
+    {
+      "lot_size": 1,
+      "tick_size": 0.05,
+      "expiry": null,
+      "strike": null,
+      "option_type": null,
+      "isin": null,
+      "weekly_expiry": null
+    }
+  ]
+}
