@@ -140,10 +140,14 @@ const BrokerConnection: React.FC = () => {
       return;
     }
 
+    console.log('Form data before validation:', formData);
+    console.log('Required fields for', selectedBroker, ':', config.requiredFields);
+
     // Validate required fields
     const missingFields = config.requiredFields.filter(field => !formData[field]);
     if (missingFields.length > 0) {
       toast.error(`Missing required fields: ${missingFields.join(', ')}`);
+      console.error('Missing fields:', missingFields);
       return;
     }
 
@@ -154,7 +158,7 @@ const BrokerConnection: React.FC = () => {
         connectionName: formData.connectionName || `${config.name} Connection`,
         apiKey: formData.apiKey,
         apiSecret: formData.apiSecret,
-        userId: formData.userId || formData.clientCode,
+        userId: formData.userId || formData.clientCode || formData.userIdBroker,
         vendorCode: formData.vendorCode,
         redirectUri: formData.redirectUri,
         serverUrl: formData.serverUrl,
@@ -165,6 +169,12 @@ const BrokerConnection: React.FC = () => {
         appKey: formData.appKey
       };
 
+      console.log('Connection data being sent:', {
+        ...connectionData,
+        apiKey: connectionData.apiKey ? '***' : undefined,
+        apiSecret: connectionData.apiSecret ? '***' : undefined,
+        password: connectionData.password ? '***' : undefined
+      });
       const response = await brokerAPI.connect(connectionData);
 
       if (response.data.requiresAuth && response.data.loginUrl) {
@@ -205,6 +215,8 @@ const BrokerConnection: React.FC = () => {
         setSelectedBroker('');
       }
     } catch (error: any) {
+      console.error('Broker connection error:', error);
+      console.error('Error response:', error.response?.data);
       toast.error(error.response?.data?.error || 'Failed to connect broker');
     } finally {
       setSubmitting(false);

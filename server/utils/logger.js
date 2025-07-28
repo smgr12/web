@@ -144,6 +144,12 @@ const createLogger = (module = 'APP') => {
     debug: (message, meta = {}) => {
       logger.debug(message, { module, ...meta });
     },
+
+    // Add console logging for debugging
+    debugConsole: (message, meta = {}) => {
+      console.log(`[${module}] ${message}`, meta);
+      logger.debug(message, { module, ...meta });
+    },
     
     // Special method for HTTP requests
     logRequest: (req, res, duration = null) => {

@@ -138,6 +138,14 @@ class BrokerConfigService {
     const config = this.getBrokerConfig(brokerName);
     const errors = [];
 
+    // Log validation attempt
+    logger.info(`Validating broker data for ${brokerName}`, {
+      brokerName,
+      isInitialConnection,
+      providedFields: Object.keys(data),
+      requiredFields: config.requiredFields
+    });
+
     // For manual auth brokers (Angel, Shoonya), password and two_fa are collected in the second step
     let fieldsToValidate = config.requiredFields;
     
@@ -148,17 +156,43 @@ class BrokerConfigService {
       );
     }
 
+    logger.debug(`Fields to validate for ${brokerName}:`, fieldsToValidate);
+
     // Check required fields
     for (const field of fieldsToValidate) {
-      if (!data[field] || data[field].trim() === '') {
+      // Map common field variations
+      const fieldValue = data[field] || data[this.mapFieldName(field)] || '';
+      
+      if (!fieldValue || (typeof fieldValue === 'string' && fieldValue.trim() === '')) {
         errors.push(`${field} is required for ${config.name}`);
+        logger.warn(`Missing required field: ${field} for ${brokerName}`);
       }
     }
+
+    logger.info(`Validation result for ${brokerName}:`, {
+      isValid: errors.length === 0,
+      errors
+    });
 
     return {
       isValid: errors.length === 0,
       errors
     };
+  }
+
+  // Map common field name variations
+  mapFieldName(field) {
+    const fieldMappings = {
+      'api_key': 'apiKey',
+      'api_secret': 'apiSecret',
+      'user_id_broker': 'userId',
+      'vendor_code': 'vendorCode',
+      'redirect_uri': 'redirectUri',
+      'server_url': 'serverUrl',
+      'client_code': 'clientCode'
+    };
+    
+    return fieldMappings[field] || field;
   }
 
   generateWebhookSyntax(brokerName, orderData = {}) {

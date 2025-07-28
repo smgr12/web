@@ -93,9 +93,27 @@ router.post('/connect', authenticateToken, async (req, res) => {
       vendorCode
     });
 
+    // Basic validation
+    if (!brokerName) {
+      return res.status(400).json({ 
+        error: 'Broker name is required' 
+      });
+    }
+
+    if (!apiKey) {
+      return res.status(400).json({ 
+        error: 'API key is required' 
+      });
+    }
+
     // Validate broker configuration
     const validation = brokerConfigService.validateBrokerData(brokerName, req.body, true);
     if (!validation.isValid) {
+      logger.error('Broker validation failed:', {
+        brokerName,
+        errors: validation.errors,
+        requestBody: { ...req.body, apiKey: '***', apiSecret: '***' }
+      });
       return res.status(400).json({ 
         error: 'Invalid broker configuration', 
         details: validation.errors 
